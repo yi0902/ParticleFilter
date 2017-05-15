@@ -73,8 +73,7 @@ public:
 	 * @param obs_landmarks Vector of transformed landmark observations
 	 * @param map_landmarks Vector of map landmarks
 	 */
-    //void dataAssociation(std::vector<LandmarkObs> predicted_landmarks, std::vector<LandmarkObs>& observations);
-    void dataAssociation(std::vector<LandmarkObs> landmarks, std::vector<LandmarkObs>& observations);
+    void dataAssociation(std::vector<LandmarkObs> predicted_landmarks, std::vector<LandmarkObs>& observations);
 	
 	/**
 	 * updateWeights Updates the weights for each particle based on the likelihood of the 

@@ -26,7 +26,6 @@ int main() {
 	double max_yaw_error = 0.05; // Max allowable yaw error [rad]
 
 
-
 	// Start timer.
 	int start = clock();
 	
@@ -49,8 +48,10 @@ int main() {
 	normal_distribution<double> N_theta_init(0, sigma_pos[2]);
 	normal_distribution<double> N_obs_x(0, sigma_landmark[0]);
 	normal_distribution<double> N_obs_y(0, sigma_landmark[1]);
-	double n_x, n_y, n_theta, n_range, n_heading;
-	// Read map data
+	
+    double n_x, n_y, n_theta, n_range, n_heading;
+	
+    // Read map data
 	Map map;
 	if (!read_map_data("data/map_data.txt", map)) {
 		cout << "Error: Could not open map file" << endl;
@@ -94,7 +95,7 @@ int main() {
 			n_y = N_y_init(gen);
 			n_theta = N_theta_init(gen);
 			pf.init(gt[i].x + n_x, gt[i].y + n_y, gt[i].theta + n_theta, sigma_pos);
-		}
+        }
 		else {
 			// Predict the vehicle's next state (noiseless).
 			pf.prediction(delta_t, sigma_pos, position_meas[i-1].velocity, position_meas[i-1].yawrate);

@@ -25,9 +25,7 @@ struct Particle {
 class ParticleFilter {
 	
 	// Number of particles to draw
-	int num_particles; 
-	
-	
+	int num_particles;
 	
 	// Flag, if filter is initialized
 	bool is_initialized;
@@ -72,10 +70,11 @@ public:
 	/**
 	 * dataAssociation Finds which observations correspond to which landmarks (likely by using
 	 *   a nearest-neighbors data association).
-	 * @param predicted Vector of predicted landmark observations
-	 * @param observations Vector of landmark observations
+	 * @param obs_landmarks Vector of transformed landmark observations
+	 * @param map_landmarks Vector of map landmarks
 	 */
-	void dataAssociation(std::vector<LandmarkObs> predicted, std::vector<LandmarkObs>& observations);
+    //void dataAssociation(std::vector<LandmarkObs> predicted_landmarks, std::vector<LandmarkObs>& observations);
+    void dataAssociation(std::vector<LandmarkObs> landmarks, std::vector<LandmarkObs>& observations);
 	
 	/**
 	 * updateWeights Updates the weights for each particle based on the likelihood of the 
